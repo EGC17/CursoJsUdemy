@@ -1,0 +1,6 @@
+Microdatos : forma de darle significado a elementos del DOM, son parte de la especificacion de HTML5, estos se escriben dentro
+de las etiquetas como atributos.
+La organización que estandariza los Microdatos es schema.org, los atributos que se usan son itemtype , itemprop
+links:
+https://developers.google.com/search/docs/appearance/structured-data?hl=es
+https://schema.org/Movie

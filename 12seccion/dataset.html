@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            DataSet
+        </title>
+        <meta charset="utf-8">
+        <script>
+            window.onload = () => {
+                var parrafo = document.querySelector("p");
+                var id = parrafo.dataset["id"];
+                document.write(`El data-id del párrafo es ${id} <br>`);
+
+                //Cambiar el data-id
+                parrafo.dataset["id"]=456;
+                id = parrafo.dataset["id"];
+                document.write(`El data-id nuevo es ${id}`)
+
+            }
+        </script>
+    </head>
+
+    <body>
+        <p data-id="123">Este es un  párrafo de ejemplo</p>
+    </body>
+</html>
