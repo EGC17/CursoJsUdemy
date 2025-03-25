@@ -1,0 +1,11 @@
+Herramientas de Consola para Debug
+
+console.clear()
+console.log()
+console.error()
+console.dir()
+console.dirxml()
+console.info()
+console.time(),console.timeEnd()
+console.trace()
+console.warm() 
