@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Galeria de Imágenes</title>
+        <meta charset="utf-8">
+        <style>
+            body{
+                width: 800px;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+        </style>
+        <script>
+            let idGaleria = null;
+            let contadorFoto = 1;
+            window.onload = () =>{
+                idGaleria = setInterval(cambiarFoto,2500);
+            }
+
+            const cambiarFoto = () =>{
+                //Aumenta en 1 el numero de la foto
+                contadorFoto++; // ramdon == Math.floor(Math.ramdon()*6);
+                //Cuando llega a 7 el contador Foto, vuelve y reinicia a 1
+                if(foto>6) foto = 1
+                document.images["foto"].src =`Imagenes/fondos/fondo${contadorFoto}.jpg`;
+            }
+
+        </script>
+
+    </head>
+    <body>
+        <h1>Galeria de Imágenes Arquitectura Antigua Grecia</h1>
+        <img src="Imagenes/fondos/fondo1.jpg" id="foto">
+    </body>
+</html>
