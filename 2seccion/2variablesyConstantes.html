@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Variables y Constantes  ES6
+        </title>
+        <meta charset="utf-8">
+        <script>
+            /**
+             * let Indica que una variable va estar definida en un bloque en particular,
+             *  al terminar el bloque la variable deja de existir
+             * 
+             * const previene que una variable declarada cambie de valor
+            */
+             function prueba(){
+                if(true){
+                    let x = 10;
+                    console.log(x);
+                }
+               // console.log(x); Marca  =>  Uncaught ReferenceError: x is not defined
+             }
+             prueba();
+
+
+             const z = 99;
+             console.log(z);
+             //  z=1; Marca =>  Uncaught TypeError: Assignment to constant  
+             console.log(z);
+             
+             
+
+        </script>
+    </head>
+</html>

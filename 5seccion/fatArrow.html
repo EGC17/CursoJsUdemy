@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> fat Arrow</title>
+        <meta charset="utf-8">
+        <script>
+            //un parametro
+            var x = a => a;
+            console.log(x("hola"));
+            //dos parametros
+            var z = (a,b) => a+" "+b;
+            console.log(z("hola", "caryola"));
+            //sin parametros
+            var y = () => "sin párametros!";
+            console.log(y());
+
+
+            //Llamar una funcion desde otra funcion
+            setTimeout(() => alert("Hola desdes ES6"), 1000);
+            
+        </script>
+    </head>
+</html>

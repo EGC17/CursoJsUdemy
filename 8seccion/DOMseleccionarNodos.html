@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Seleccionar Nodos
+        </title>
+        <meta charset="utf-8">
+        <script>
+            //window.onload indica que la funcion se debe ejecutar cuando ya haya cargado totalmente el DOM
+            window.onload = function () {
+                var misLI = document.getElementsByTagName("li");
+            console.log("El número de elementos de la lista son: "+ misLI.length );
+
+            var miDOM = document.getElementById("dom");
+            console.log("El número de nodos de la lista es: "+ miDOM.childNodes.length);//cuenta etiquetas y contenido
+            
+            //Contenido de un nodo
+            console.log("El contenido del nodo es: "+ miDOM.innerHTML );
+
+            //obtenemos el tipo de nodo
+            console.log("El tipo de nodo es :"+ miDOM.nodeType);
+            
+
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Esta es una página html h1</h1>
+        <p>Las siglas DOM significan: </p>
+        <ul id="dom">
+            <li>Document</li>
+            <li>Object</li>
+            <li>Model</li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Seleccionar Nodos
+        </title>
+        <meta charset="utf-8">
+        <script>
+            //window.onload indica que la funcion se debe ejecutar cuando ya haya cargado totalmente el DOM
+            window.onload = function () {
+
+                //Seleccionamos por clase
+            var rojos = document.querySelectorAll(".rojo");
+            console.log("Tenemos "+ rojos.length + " elementos rojos");
+                //Seleccionamos por identificador
+            var amarillos = document.querySelectorAll("#amarillo");
+            console.log("Tenemos "+ amarillos.length+" elementos amarillos");
+                //Seleccionamos por atributo
+            var verdes = document.querySelectorAll("p[class]");
+            console.log("Tenemos "+ verdes.length+" elementos verdes");
+            
+            
+
+            }
+        </script>
+
+        <style>
+            h1{
+                color: blue;
+            }
+            .rojo{
+                color: red;
+            }
+            .verde{
+                color:green;
+            }
+            #amarillo{
+                color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Esta es una página html h1</h1>
+        <p class="verde">Las siglas DOM significan: </p>
+        <p>Las siglas DOM significan: </p>
+        <ul id="amarillo">
+            <li class="rojo">Document</li>
+            <li>Object</li>
+            <li class="rojo">Model</li>
+        </ul>
+    </body>
+</html>

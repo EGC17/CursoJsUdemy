@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Cadena CharAt
+        </title>
+        <meta charset="utf-8">
+        <script>
+            function caracteresInvalidos(cadena){
+                var invalidos = "éíóúá";
+                var bandera = false;
+                for(var i = 0; i< invalidos.length; i++){
+                    var c = invalidos.charAt(i);
+                  
+                    if(cadena.indexOf(c) != -1){
+                        bandera = true;
+                        break;
+                    }
+                }
+                return bandera;
+            }
+
+            correo = "eriká@gmail.com";
+
+            if(caracteresInvalidos(correo)){
+                document.write("tiene carácteres inválidos!")
+            }
+        </script>
+    </head>
+</html>

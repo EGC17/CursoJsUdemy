@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Objeto Arguments
+    </title>
+    <meta charset="utf-8">
+    <script>
+        function suma() {
+            var total = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                total += arguments[i];
+            }
+            return total;
+        }
+
+        function concatenar (separador){
+            var cadena ="";
+            for(var i = 1 ; i < arguments.length ; i++){
+                if(arguments.length == i+1){
+                    cadena +=arguments[i];
+                }else{
+                    cadena +=arguments[i]+separador;
+                }
+            }
+            return cadena;
+        }
+
+        document.write(suma(5,5,5,5,5,47)+"<br>")
+        document.write(concatenar(",","lupe","maria")+"<br>")
+    </script>
+</head>
+
+</html>

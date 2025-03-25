@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Introduccion a Eventos</title>
+        <script >
+            window.onload = function(){
+                alert("Bienvenido a mi página!!");
+                document.getElementById("color").onclick = function(){
+
+                    var bodys = document.getElementsByTagName("body"); 
+                     //bodys[0] obtiene el primer elemento <body>.
+
+                    //classList.contains('azul') verifica si ese elemento tiene la clase "azul".
+                    if(bodys[0].classList.contains("azul")){
+                        bodys[0].setAttribute("class","pink");
+                    }else{
+                        bodys[0].setAttribute("class","azul");
+                    }
+                    
+                    
+                }
+            }
+        </script>
+        <style>
+            .azul{background-color: blue;}
+            .pink{background-color: pink;}
+        </style>
+    </head>
+
+    <body>
+        <h1 id="color">Cambiar Color</h1>
+
+
+    </body>
+</html>

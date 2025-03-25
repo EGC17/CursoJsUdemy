@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Número Mágico
+        </title>
+        <script>
+            var magico = Math.floor(Math.random()*101);
+            console.log(magico);
+            var intentos = 1
+            
+            window.onload = function(){
+
+                document.getElementById("envia").onclick = function(){
+                    var miNumero = document.getElementById("numero").value;
+                    if(miNumero > magico){
+                        document.getElementById("salida").innerHTML += "Tu número es mayor que el número mágico <br>";
+                        
+                    }else if( miNumero < magico){
+                        document.getElementById("salida").innerHTML += "Tu número es menor que el número mágico <br>"
+                    }else{
+                        document.getElementById("salida").innerHTML += "Adivinaste!!! Felicitaciones, Ganaste un viaje a REPUBLICA DOMINICA!!!!"
+                    }
+                    intentos++;
+
+                if(intentos>3){
+                    document.getElementById("salida").innerHTML += "Gastaste todos los intentos :( .... Game Over!"
+                    document.getElementById("envia").setAttribute("disabled","")
+                }
+                    
+                }
+
+                
+            }
+
+         
+
+
+        </script>
+    </head>
+    <body>
+        <p>Adivina el número mágico!! del 1 al 100...listo?</p>
+        <p>Sólo tienes 3</p>
+        <input type="text" id="numero">
+        <button id="envia">Enviar</button>
+        <div id="salida"></div>
+    </body>
+</html>

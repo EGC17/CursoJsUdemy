@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Index Of
+        </title>
+        <meta charset="utf-8">
+        <script>
+            //devuelve la posición desde donde empieza la subcadena, en caso de no contener la subcadena retorna -1
+            var correo1 = "pacoArce@gmail.com";
+            var correo2 = "pacoarce@gmail.com";
+
+            var pos = correo2.indexOf("@");
+            document.write("indexof @ :"+correo1+"  "+ pos+"<br>");
+
+            if(correo1.toUpperCase() == correo2.toUpperCase()){
+                document.write("los correos son iguales <br>");
+            }
+
+            //sacar substring
+            sub = correo1.substr(0,pos).toUpperCase();
+
+            document.write(sub);
+
+        </script>
+    </head>
+</html>

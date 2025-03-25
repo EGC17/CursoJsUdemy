@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Funciones Anidadas
+        </title>
+        <meta charset="utf-8">
+        <script>
+            function sumaCuadrados(a,b){
+                function cuadrado (x){
+                    return x * x ;
+                }
+                return cuadrado(a)+ cuadrado(b);
+            }
+
+            document.write(sumaCuadrados(3,4));
+            // document.write(cuadrado(4));  // ReferenceError: cuadrado is not defined
+        </script>
+    </head>
+</html>

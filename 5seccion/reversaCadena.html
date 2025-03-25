@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Reversa de Cadena
+        </title>
+        <meta charset="utf-8">
+        <script>
+
+            /**
+             * El método slice() permite extraer una porción de una cadena de texto. Este método toma dos argumentos:
+             * el índice de inicio y el índice final de la porción que se desea extraer.
+             * El índice final es opcional y, si no se proporciona, se tomará hasta el final de la cadena.
+             * 
+             * Saca siempre el primer valor y lo coloca de ultima recursivamente hasta que la longitud de la cadena sea 1
+             * 
+            */
+
+            function reversa(str){
+                if(str.length == 1) return str;
+                return reversa(str.slice(1))+str[0];
+            }
+
+            window.onload = function (){
+                document.getElementById("reversar").addEventListener("click",function(){
+                    var cadena = document.getElementById("cadena").value;
+                    //Diferencia para imprimir valor en etiquetas (input y en p) 
+                    document.getElementById("reversa").value = reversa(cadena);
+                    document.getElementById("reversa_parrafo").innerHTML = reversa(cadena);
+                }, false);
+            }
+        </script>
+    </head>
+
+    <body>
+        <label>Cadena: </label>
+        <input type="text" id="cadena"><br>
+        <label>Cadena Reversa</label>
+        <input type="text" id="reversa"><br>
+        <p id="reversa_parrafo"></p>
+        <button id="reversar" >Reversa</button>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Seleccionar Nodos por Clase
+    </title>
+    <meta charset="utf-8">
+    <script>
+        window.onload = function () {
+            var rojos = document.getElementsByClassName("rojo")
+            console.log("La cantidad de clase rojo son: "+ rojos.length);
+
+            for( let i =0; i < rojos.length ; i++){
+                console.log("El contenido html de las clases rojo es : "+ rojos[i].innerHTML);
+                
+            }
+            
+        }
+    </script>
+    <style>
+        .rojo {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Esta es una página html h1</h1>
+    <p>Las siglas DOM significan: </p>
+    <ul id="dom">
+        <li class="rojo">Document</li>
+        <li class="rojo">Object</li>
+        <li>Model</li>
+    </ul>
+</body>
+
+</html>

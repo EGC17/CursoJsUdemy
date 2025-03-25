@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Relacionar dos Combo-box | Ciudades</title>
+        <meta charset="utf-8">
+        <script>
+            //Se definen los arreglos de los paises y ciudades
+            const paises_array = new Array("Seleccione un país","México","España","Colombia");
+            const ciudad0_array = new Array("Selecciona una ciudad");
+            const ciudad1_array = new Array("Selecciona una ciudad","CDMX","Guadalajara");
+            const ciudad2_array = new Array("Selecciona una ciudad","Madrid","Valencia");
+            const ciudad3_array = new Array("Selecciona una ciudad", "Bogotá", "Barranquilla","Cali");
+            //Arreglos de Arreglos
+            const ciudad_array = new Array(ciudad0_array,ciudad1_array,ciudad2_array,ciudad3_array);
+            //Apuntadores para los combobox
+            var pais_cb, ciudad_cb;
+
+            window.onload = function(){
+                //Referencia a los combos
+                pais_cb = document.getElementById("pais");
+
+                //Limpiamos el combo del país ,se eliminará el primer elemento repetidamente hasta que la lista esté vacía.
+                while(pais_cb.length > 0) pais_cb.remove(0);
+
+                //Poblamos el combo del país
+                paises_array.map((pais,i)=>{
+                    crearOpcion(pais_cb,i,pais)
+                });
+
+                //Detector del evento del combo
+                pais_cb.onchange = (e) =>{
+                    //Referencia al combo de ciudad
+                    ciudad_cb = document.getElementById("ciudad");
+
+                    //Limpiamos el combo de ciudad
+                    while(ciudad_cb.length>0)ciudad_cb.remove(0);
+
+                    //obtener el índice del elemento seleccionado en un control de selección, por eje 
+                    const miPais = pais_cb.selectedIndex;
+
+                    //Poblamos el combo del país
+                    ciudad_array[miPais].map((ciudad,i)=>{
+                        crearOpcion(ciudad_cb,i,ciudad);
+                    });
+                }
+
+            }
+
+            const crearOpcion = (combo, indice , valor)=>{
+                const miOpcion = new Option(valor,String(indice));
+                combo.appendChild(miOpcion);
+            };
+
+
+        </script>
+    </head>
+    <body>
+        <select  id="pais">
+            <option value="">Selecciona un país</option>
+        </select>
+        <select  id="ciudad">
+            <option value="">Selecciona una ciudad</option>
+        </select>
+    </body>
+</html>
