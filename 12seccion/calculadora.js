@@ -15,7 +15,7 @@ window.onload = function () {
             } else if (n == "=") {
                 calcular();
             } else if (signos.indexOf(n) > -1) {
-                validaSigno(n);
+                validarSigno(n);
             } else {
                 regresar(n);
             }
@@ -55,21 +55,82 @@ function numeros(e) {
 }
 
 function borrar() {
-    console.log("borrar");
+    document.forma.valor.value ="";
 }
 
 function borrarCaracter() {
-    console.log("borrar Caracter");
+    let valor = document.forma.valor.value;
+    let nuevo = valor.substring(0,valor.length-1);
+    document.forma.valor.value = nuevo;
 }
 
+function calcular2() {
+    let resultado = eval(document.forma.valor.value);
+    if (resultado == "Infinity") {
+        document.forma.valor.value = "No podemos dividir entre cero";
+    }else{
+        document.forma.valor.value = resultado;
+    }
+}
+
+//sin eval
 function calcular() {
-    console.log("calcular");
+    let input = document.getElementById("valor");
+    let expresion = input.value;
+
+    try {
+        let resultado = new Function('return ' + expresion)();
+
+        if (!isFinite(resultado)) {
+            input.value = "No podemos dividir entre cero";
+        } else {
+            input.value = resultado;
+        }
+    } catch (error) {
+        input.value = "Error en la operación";
+    }
 }
 
-function validaSigno(n) {
-    console.log("valida Signo");
+
+function validarSigno(n) {
+    let anterior = document.forma.valor.value;
+    if(anterior != ""){
+        document.getElementById("valor").value = anterior + n;
+        cadena = document.getElementById("valor").value;
+
+        let record = 0;
+        let igual = 1;
+        for(var a= 0; a < cadena.length ; a++){
+            if(
+            cadena.charAt(a) == "+"||
+            cadena.charAt(a) == "-"||
+            cadena.charAt(a) == "*"||
+            cadena.charAt(a) == "/"||
+            cadena.charAt(a) == "."
+                ){
+                    igual++;
+                }else{
+                    if(igual > record){
+                        record = igual;
+                    }else{
+                        igual =1;
+                    }
+                }
+            if(igual > record){
+                record = igual;
+            }
+            if( record > 2){
+                var numero = cadena.substring(0, cadena.length-1);
+                document.getElementById("valor").value = numero;
+                record = 0; igual = 1;
+            }
+        }
+        
+    }
 }
 
 function regresar(n) {
-    console.log("regresar numero");
+    let valor = document.forma.valor.value;
+    let nuevo = valor+n;
+    document.forma.valor.value= nuevo;
 }
