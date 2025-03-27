@@ -56,5 +56,35 @@ function iniciarJuego() {
 function girarCarta() {
     var evento = window.event;
     jugada2 = evento.target.dataset.valor;
-    alert("Evento" + evento.target.id + " Jugada" + jugada2);
+    identificadorJ2 = evento.target.id
+    //alert("Evento" + evento.target.id + " Jugada" + jugada2);
+
+    //Seleccionamos la segunda carta
+    if (jugada1 !== "") {
+
+        //Son iguales las cartas
+        if (jugada1 == jugada2 &&
+            cartas[parseInt(identificadorJ2).seleccion] != true &&
+            cartas[parseInt(identificadorJ1).seleccion] != true
+        ) {
+            cartas[parseInt(identificadorJ2).seleccion] = true;
+            cartas[parseInt(identificadorJ1).seleccion] = true;
+
+            cambiarColor(identificadorJ2, "blue", jugada2);
+        } else {
+            cambiarColor(identificadorJ2, "blue", jugada2);
+        }
+
+    } else if (jugada2 !== "void") {
+        cambiarColor(identificadorJ2, "blue", jugada2);
+        jugada1 = jugada2;
+        identificadorJ1 = identificadorJ2;
+    }
+}
+
+function cambiarColor(posicion, color, numero) {
+    console.log(posicion.toString());
+
+    document.getElementById(posicion.toString()).style.backgroundColor = color;
+    document.getElementById(posicion.toString()).innerHTML = numero;
 }
