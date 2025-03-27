@@ -34,9 +34,27 @@ window.onload = function () {
 }
 
 function iniciarJuego() {
-    alert("Iniciar Juego!");
+    //Modificar el tablero
+    var dato = document.getElementById("juego");
+    dato.style.opacity = 1;
+
+    //Barajamos Cartas
+    cartas.sort(function () { return Math.random() - 0.5 })
+    console.log(cartas);
+
+    //Asignamos los datos  a las celdas de la tabla
+    for (var i = 0; i < numFichas; i++) {
+        var carta = cartas[i].nombre;
+        var data = document.getElementById(i.toString());
+        data.dataset.valor = carta;
+        console.log("dataset" + data.dataset.valor);
+
+    }
+
 }
 
 function girarCarta() {
-    alert("Girar Carta!");
+    var evento = window.event;
+    jugada2 = evento.target.dataset.valor;
+    alert("Evento" + evento.target.id + " Jugada" + jugada2);
 }
