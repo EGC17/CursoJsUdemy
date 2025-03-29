@@ -64,14 +64,21 @@ function girarCarta() {
 
         //Son iguales las cartas
         if (jugada1 == jugada2 &&
-            cartas[parseInt(identificadorJ2).seleccion] != true &&
-            cartas[parseInt(identificadorJ1).seleccion] != true
+            cartas[parseInt(identificadorJ2)].seleccion != true &&
+            cartas[parseInt(identificadorJ1)].seleccion != true
         ) {
-            cartas[parseInt(identificadorJ2).seleccion] = true;
-            cartas[parseInt(identificadorJ1).seleccion] = true;
+            cartas[parseInt(identificadorJ2)].seleccion = true;
+            cartas[parseInt(identificadorJ1)].seleccion = true;
 
             cambiarColor(identificadorJ2, "blue", jugada2);
-        } else {
+            limpiarVariables();
+            verificar();
+        } else if(identificadorJ1 != identificadorJ2){
+            setTimeout(function(){
+                cambiarColor(identificadorJ1,"black", "?");
+                cambiarColor(identificadorJ2,"black", "?");
+                limpiarVariables();
+            },500)
             cambiarColor(identificadorJ2, "blue", jugada2);
         }
 
@@ -87,4 +94,22 @@ function cambiarColor(posicion, color, numero) {
 
     document.getElementById(posicion.toString()).style.backgroundColor = color;
     document.getElementById(posicion.toString()).innerHTML = numero;
+}
+
+function limpiarVariables (){
+    jugada1 = jugada2 = "";
+    identificadorJ1 = identificadorJ2 = "";
+}
+
+function verificar(){
+ var aciertos = 0;
+ for(var i= 0; i < numFichas; i++){
+    if(cartas[i].seleccion == true){
+        aciertos++;
+    }
+ }
+
+ if( aciertos == numFichas){
+    alert("Felicidades, Finalizaste el Juego!!!");
+ }
 }
