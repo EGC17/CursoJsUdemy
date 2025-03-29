@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Factores Primos</title>
+    <script>
+        function factoresPrimos(numero) {
+            // Guardamos los factores
+            let factores = new Array();
+            //Igualamos el residuo
+            let residuo = numero;
+            //Repetimos hasta que el residuo sea 1
+            while (residuo > 1) {
+                //Evaluamos números primos
+                for (var i = 2; i <= numero; i++) {
+                    //verificamos si tiene division exacta
+                    if (residuo % i == 0) {
+                        residuo = residuo / i;
+                        factores.push(i);
+                        break;
+                    }
+                }
+            }
+            return factores;
+        }
+
+        console.log(factoresPrimos(88));
+
+    </script>
+</head>
+
+</html>
