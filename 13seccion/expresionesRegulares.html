@@ -8,10 +8,29 @@
             var str = "Pedro Picapiedra";
             var nombre = str.replace(re, "$2, $1")// los numeros indican cada palabra por lo que invierte el orden original de str.
             console.log(str, nombre);
+
+            /**
+             * Ejemplo Code Postal
+            */
+
+            var reg = /^([1-9]{2}|[0-9][1-9]|[1-9][0-9]){3}$/;
+
+            window.onload = function(){
+                document.getElementById("valida").onclick = function() {
+                    var r = reg.test(document.getElementById("postcode").value);
+                    if(r){
+                        alert("Code postal Correcto :)");
+                    }else{
+                        alert("Incorrecto   :( ");
+                    }
+                }
+            }
             
         </script>
     </head>
     <body>
-        
+
+        <button id="valida"> Valida</button>
+        <input type="text" id="postcode"  placeholder="######">
     </body>
 </html>
