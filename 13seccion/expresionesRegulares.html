@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Expresiones Regulares</title>
+        <meta charset="utf-8">
+        <script>
+            var re = /(\w+)\s(\w+)/;
+            var str = "Pedro Picapiedra";
+            var nombre = str.replace(re, "$2, $1")// los numeros indican cada palabra por lo que invierte el orden original de str.
+            console.log(str, nombre);
+            
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
