@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AJAX 06</title>
+<script>
+function buscaAlumnos(p){
+	if(p.length==0){
+		document.getElementById("sugerencias").innerHTML="";
+		return;
+	}
+	var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();
+	} else {
+		//IE 5y6
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.open("GET","alumnos.php?q="+p,true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange=function(){
+		if(xmlhttp.readyState==4 && xmlhttp.status==200){
+			document.getElementById("sugerencias").innerHTML = xmlhttp.responseText;
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<button onclick="buscaAlumnos('A')">A</button>
+<button onclick="buscaAlumnos('B')">B</button>
+<button onclick="buscaAlumnos('C')">C</button>
+<button onclick="buscaAlumnos('D')">D</button>
+<button onclick="buscaAlumnos('E')">E</button>
+<p>Alumnos:<br> <span id="sugerencias"></span></p>
+</body>
+</html>

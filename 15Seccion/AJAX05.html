@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AJAX 05</title>
+<script>
+function listaPaises(p){
+	if(p.length==0){
+		document.getElementById("sugerencias").innerHTML="";
+		return;
+	}
+	var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();
+	} else {
+		//IE 5y6
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.open("GET","paises.php?q="+p,true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange=function(){
+		if(xmlhttp.readyState==4 && xmlhttp.status==200){
+			document.getElementById("sugerencias").innerHTML = xmlhttp.responseText;
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<h3>Pulsa para el país</h3>
+<form action="">
+País:<input type="text" id="pais" onKeyUp="listaPaises(this.value)"/>
+</form>
+<p>Sugerencias: <span id="sugerencias"></span></p>
+</body>
+</html>
